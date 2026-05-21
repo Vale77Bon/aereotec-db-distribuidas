@@ -80,5 +80,3 @@ Open a new terminal, navigate to the frontend folder, and run:
 `npm install`
 `npm run dev`
 
-## 📸 Dashboard Preview
-*(Note: You can drop a screenshot of your dashboard right here).*
