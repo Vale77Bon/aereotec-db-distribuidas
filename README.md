@@ -32,3 +32,53 @@ Abre otra terminal, entra al frontend y ejecuta:
 `cd frontend`
 `npm install`
 `npm run dev`
+
+
+---
+
+# ✈️ AereoTec - Distributed Databases Dashboard (English Version)
+
+This project is an enterprise simulation of a commercial airline that connects a React frontend with a Node.js API, extracting real-time information from three independent and isolated database engines (MySQL, SQL Server, and PostgreSQL).
+
+## 🏗️ Tech Stack
+* **Infrastructure:** Docker & Docker Compose
+* **Backend:** Node.js, Express.js (REST API)
+* **Frontend:** React.js, Vite, Tailwind CSS
+* **Database Engines:**
+  * **MySQL 8.0 (OLTP):** Transactional management of flights and reservations.
+  * **SQL Server 2019 (ERP):** Logistics control for fleet and maintenance.
+  * **PostgreSQL 15 (OLAP):** Financial auditing and security logs using native JSONB.
+
+## 🛠️ Prerequisites
+
+To run this project locally, you will need:
+1. **[Docker Desktop](https://www.docker.com/products/docker-desktop/):** To spin up the database containers without manually installing the engines.
+2. **[Node.js (LTS)](https://nodejs.org/):** To run the backend server and the frontend interface.
+3. **[Python 3](https://www.python.org/):** To execute the synthetic data injection script.
+
+## 🚀 Quick Start Guide
+
+**Step 1: Spin up the databases**
+Open Docker Desktop. Then, in your terminal, run:
+`docker compose up -d`
+
+**Step 2: Inject synthetic data**
+Navigate to the scripts folder, install the dependencies, and run the Python script:
+`cd scripts`
+`pip install faker mysql-connector-python pyodbc psycopg2`
+`python poblar_datos.py`
+
+**Step 3: Start the API (Backend)**
+Navigate to the backend folder, rename `.env.example` to `.env` with your Docker credentials, and run:
+`cd backend`
+`npm install`
+`node server.js`
+
+**Step 4: Start the Visual Dashboard (Frontend)**
+Open a new terminal, navigate to the frontend folder, and run:
+`cd frontend`
+`npm install`
+`npm run dev`
+
+## 📸 Dashboard Preview
+*(Note: You can drop a screenshot of your dashboard right here).*
