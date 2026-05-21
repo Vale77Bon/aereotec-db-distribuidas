@@ -1,0 +1,15 @@
+# Evitar subir paquetes pesados de Node
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Evitar subir contraseñas reales
+.env
+backend/.env
+
+# Evitar subir basura del sistema operativo
+.DS_Store
+*.log
+
+# NUNCA SUBIR DATOS FÍSICOS DE LAS BASES DE DATOS
+data/

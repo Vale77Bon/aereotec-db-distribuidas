@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # 1. MySQL (OLTP - Reservaciones)
+  mysql-reservaciones:
+    image: mysql:8.0
+    container_name: mysql_reservaciones
+    environment:
+      MYSQL_ROOT_PASSWORD: Password123!
+      MYSQL_DATABASE: reservaciones_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    restart: unless-stopped
+
+  # 2. SQL Server (ERP - Operaciones)
+  sqlserver-operaciones:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver_operaciones
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql !
+    restart: unless-stopped
+
+  # 3. PostgreSQL (OLAP - Finanzas y Auditoría)
+  postgres-finanzas:
+    image: postgres:15
+    container_name: postgres_finanzas
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password123!
+      POSTGRES_DB: finanzas_auditoria_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+
+# Declaración del volumen interno para SQL Server
+volumes:
+  sqlserver_data:
